@@ -8,7 +8,6 @@ import mongoose from "mongoose";
 dotenv.config();
 
 const server = express();
-console.log("Variáveis disponíveis:", process.env);
 const PORT = process.env.PORT || 3000;
 
 const connectDB = async () => {
