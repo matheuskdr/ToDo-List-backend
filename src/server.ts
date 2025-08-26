@@ -4,11 +4,20 @@ import path from "path";
 import dotenv from "dotenv";
 import router from "./routes";
 import mongoose from "mongoose";
+import cors from "cors";
 
 dotenv.config();
 
 const server = express();
 const PORT = process.env.PORT || 3000;
+
+server.use(
+  cors({
+    origin: "*", // ou substitua por "http://localhost:3000" se quiser restringir
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type"],
+  })
+);
 
 const connectDB = async () => {
   try {
