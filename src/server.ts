@@ -9,6 +9,8 @@ dotenv.config();
 
 const server = express();
 
+const PORT = process.env.PORT || 3000;
+
 const connectDB = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI as string);
@@ -27,6 +29,6 @@ server.use(express.static(path.join(__dirname, "../public")));
 
 server.use("/", router);
 
-server.listen(3000, () => {
-  console.log("Servidor rodando em: http://localhost:3000");
+server.listen(PORT, () => {
+  console.log(`Server is running on: ${PORT}`);
 });
